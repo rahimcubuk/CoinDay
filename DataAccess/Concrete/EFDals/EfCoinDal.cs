@@ -6,7 +6,7 @@ using Entities.Concrete.Models;
 
 namespace DataAccess.Concrete.EFDals
 {
-    public class EfDefaultDal : EntityRepository<Default, DBContext>, IDefaultDal
+    public class EfCoinDal : EntityRepository<Coin, CoindayDBContext>, ICoinDal
     {
     }
 }

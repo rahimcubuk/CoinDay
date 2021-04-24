@@ -40,7 +40,7 @@ namespace Business.BusinessAspect.Autofac
                 }
             }
 
-            throw new Exception(Messages.AuthorizationDenied);
+            throw new UnauthorizedAccessException(Messages.AuthorizationDenied);
         }
     }
 }

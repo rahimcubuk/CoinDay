@@ -44,7 +44,7 @@ namespace WebAPI.Controllers
 
             var registerResult = _authService.Register(userForRegisterDto, userForRegisterDto.Password);
 
-            _authService.AddUserDefaultClaim(userForRegisterDto);
+            //_authService.AddUserDefaultClaim(userForRegisterDto);
 
             var result = _authService.CreateAccessToken(registerResult.Data);
             if (result.Success)

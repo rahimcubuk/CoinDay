@@ -15,8 +15,8 @@ namespace WebAPI
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-            .UseServiceProviderFactory(new AutofacServiceProviderFactory()) //--> Servisa saglayici olarak Autofac servis saglayiciyi kullanacak.
-            .ConfigureContainer<ContainerBuilder>(builder =>                //--> Autofac servis saglayicisi icin business katmaninda yazdigimiz modulu configre et.
+            .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+            .ConfigureContainer<ContainerBuilder>(builder =>
             {
                 builder.RegisterModule(new AutofacBusinessModele());
             })

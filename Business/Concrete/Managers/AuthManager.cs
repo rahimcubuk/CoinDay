@@ -51,7 +51,7 @@ namespace Business.Concrete.Managers
                 return new ErrorDataResult<User>(Messages.PasswordError);
             }
 
-            return new SuccessDataResult<User>(userToCheck.Data, Messages.SuccessfulLogin);
+            return new SuccessDataResult<User>(userToCheck.Data, Messages.SuccessLogin);
         }
 
         public IResult UserExists(string email)

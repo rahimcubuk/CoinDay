@@ -3,7 +3,7 @@ using Entities.Concrete.Models;
 
 namespace Business.Abstract.Services
 {
-    public interface IDefaultService : IServiceRepository<Default>
+    public interface ICoinService : IServiceRepository<Coin>
     {
     }
 }

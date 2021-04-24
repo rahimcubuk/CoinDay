@@ -36,7 +36,8 @@ namespace Core.Extensions
 
             string message = "Internal Server Error";
             IEnumerable<ValidationFailure> errors;
-            if (e.GetType() == typeof(ValidationException))
+            var errorType = e.GetType();
+            if (errorType == typeof(ValidationException))
             {
                 message = e.Message;
                 errors = ((ValidationException)e).Errors;
@@ -48,6 +49,12 @@ namespace Core.Extensions
                     Message = message,
                     Errors = errors
                 }.ToString());
+            }
+
+            if (errorType == typeof(UnauthorizedAccessException))
+            {
+                message = e.Message;
+                httpContext.Response.StatusCode = 401;
             }
 
             return httpContext.Response.WriteAsync(new ErrorDetails

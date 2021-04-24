@@ -34,9 +34,24 @@ namespace Business.DependencyResolvers.Autofac
             // kodunu ekleyiniz.
             #endregion
 
-            #region Default
-            builder.RegisterType<DefaultManager>().As<IDefaultService>().SingleInstance();
-            builder.RegisterType<EfDefaultDal>().As<IDefaultDal>().SingleInstance();
+            #region Sale
+            builder.RegisterType<SaleManager>().As<ISaleService>().SingleInstance();
+            builder.RegisterType<EfSaleDal>().As<ISaleDal>().SingleInstance();
+            #endregion
+
+            #region Purchase
+            builder.RegisterType<PurchaseManager>().As<IPurchaseService>().SingleInstance();
+            builder.RegisterType<EfPurchaseDal>().As<IPurchaseDal>().SingleInstance();
+            #endregion
+
+            #region Coin
+            builder.RegisterType<CoinManager>().As<ICoinService>().SingleInstance();
+            builder.RegisterType<EfCoinDal>().As<ICoinDal>().SingleInstance();
+            #endregion
+
+            #region Currency
+            builder.RegisterType<CurrencyManager>().As<ICurrencyService>().SingleInstance();
+            builder.RegisterType<EfCurrencyDal>().As<ICurrencyDal>().SingleInstance();
             #endregion
 
             #region User

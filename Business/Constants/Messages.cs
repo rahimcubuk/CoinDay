@@ -10,24 +10,25 @@
         #endregion
 
         #region Error Messages
-        public static string NameInvalidError = "Girilen Ad Gecersiz.";
+        public static string NameInvalidError = "Girilen ad gecersiz.";
         public static string MaintenanceTimeError = "Sistem bakimdadir.";
-        public static string ErrorAdded = "Ekleme Basarisiz.";
-        public static string ErrorUpdated = "Guncelleme Basarisiz.";
-        public static string ErrorDeleted = "Silme basarisiz.";
-        public static string ErrorListed = "Listeleme Basarisiz.";
+        public static string ErrorAdded = "Ekleme başarısız.";
+        public static string ErrorUpdated = "Guncelleme başarısız.";
+        public static string ErrorDeleted = "Silme başarısız.";
+        public static string ErrorListed = "Listeleme başarısız.";
+        internal static string NotFound = "Kayıt bulunamadı.";
         #endregion
 
         #region Authorization Messages
         public static string AuthorizationDenied = "Yetkilendirme hatasi.";
         public static string UserNotFound = "Kullanici bulunamadi.";
         public static string PasswordError = "Parola hatasi.";
-        public static string SuccessfulLogin = "Giris basarili.";
+        public static string SuccessLogin = "Giris basarili.";
         public static string UserAlreadyExists = "Bu kullanici zaten kayitli.";
         public static string AccessTokenCreated = "Access token olusturuldu.";
         public static string UserRegistered = "Kullanici kaydedildi";
         public static string ClaimsNotFound = "Aranan nitelikte kayit bulunamadi.";
-        public static string ClaimAdded = "Yetki Verildi.";
+        public static string ClaimAdded = "Yetki verildi.";
         #endregion
     }
 }

@@ -3,7 +3,7 @@ using Entities.Concrete.Models;
 
 namespace DataAccess.Abstract.Dals
 {
-    public interface IDefaultDal : IEntityRepository<Default>
+    public interface ICurrencyDal : IEntityRepository<Currency>
     {
     }
 }

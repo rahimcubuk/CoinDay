@@ -1,19 +1,19 @@
 ﻿using Business.Abstract.Services;
-using Microsoft.AspNetCore.Mvc;
 using Entities.Concrete.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/default")]
+    [Route("api/coins")]
     [ApiController]
-    public class DefaultController : ControllerBase
+    public class CoinsController : ControllerBase
     {
         #region Constructor Method
-        IDefaultService _defaultManager;
+        ICoinService _coinService;
 
-        public DefaultController(IDefaultService defaultManager)
+        public CoinsController(ICoinService coinService)
         {
-            _defaultManager = defaultManager;
+            _coinService = coinService;
         }
         #endregion
 
@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         [Route("list")]
         public IActionResult Get()
         {
-            var result = _defaultManager.GetAll();
+            var result = _coinService.GetAll();
 
             if (result.Success) return Ok(result);
             return BadRequest(result);
@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
         [Route("list/{id}")]
         public IActionResult Get(int id)
         {
-            var result = _defaultManager.GetById(id);
+            var result = _coinService.GetById(id);
 
             if (result.Success) return Ok(result);
             return BadRequest(result);
@@ -41,9 +41,9 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [Route("delete")]
-        public IActionResult Delete(Default entity)
+        public IActionResult Delete(Coin entity)
         {
-            var result = _defaultManager.Delete(entity);
+            var result = _coinService.Delete(entity);
 
             if (result.Success) return Ok(result);
             return BadRequest(result);
@@ -51,9 +51,9 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [Route("update")]
-        public IActionResult Update(Default entity)
+        public IActionResult Update(Coin entity)
         {
-            var result = _defaultManager.Update(entity);
+            var result = _coinService.Update(entity);
 
             if (result.Success) return Ok(result);
             return BadRequest(result);
@@ -61,9 +61,9 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [Route("add")]
-        public IActionResult Add(Default entity)
+        public IActionResult Add(Coin entity)
         {
-            var result = _defaultManager.Add(entity);
+            var result = _coinService.Add(entity);
 
             if (result.Success) return Ok(result);
             return BadRequest(result);

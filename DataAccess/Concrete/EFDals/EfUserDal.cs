@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace DataAccess.Concrete.EFDals
 {
-    public class EfUserDal : EntityRepository<User, DBContext>, IUserDal
+    public class EfUserDal : EntityRepository<User, CoindayDBContext>, IUserDal
     {
         public void AddUserClaim(UserOperationClaim entity)
         {
-            using (var context = new DBContext())
+            using (var context = new CoindayDBContext())
             {
                 context.Entry(entity).State = EntityState.Added;
                 context.SaveChanges();
@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.EFDals
 
         public List<OperationClaim> GetClaims(User user)
         {
-            using (var context = new DBContext())
+            using (var context = new CoindayDBContext())
             {
                 var result = from operationClaim in context.OperationClaims
                              join userOperationClaim in context.UserOperationClaims

@@ -6,7 +6,6 @@ using Core.Utilities.Security.JWT;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,7 +26,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
+
             services.AddCors();
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
@@ -60,10 +59,8 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            //hata yonetimi (try-cache) icin ekledik. 20.gun dersi
             app.ConfigureCustomExceptionMiddleware();
 
-            // belirtilen adresten gelen isteklerin tumunu kabul et
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader()); // vs haricinde bir kaynaktan api ye erisim icin eklenmeli. Sirasi onemli
 
             app.UseHttpsRedirection();
