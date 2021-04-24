@@ -59,7 +59,7 @@ namespace Business.Concrete.Managers
 
         public IDataResult<User> GetById(int id)
         {
-            var data = _userDal.Get(x => x.UserId == id);
+            var data = _userDal.Get(x => x.Id == id);
             if (data == null)
             {
                 return new ErrorDataResult<User>(data, Messages.ErrorListed);

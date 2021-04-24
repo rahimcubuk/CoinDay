@@ -37,13 +37,13 @@ namespace DataAccess.Concrete.EFDals
         private IQueryable<PurchaseDetailsDto> CreateData(CoindayDBContext context)
         {
             return from pu in context.Purchases
-                   join us in context.Users on pu.UserId equals us.UserId
+                   join us in context.Users on pu.UserId equals us.Id
                    join co in context.Coins on pu.CoinId equals co.Id
                    join cu in context.Currencies on pu.CurrencyId equals cu.Id
                    select new PurchaseDetailsDto
                    {
                        Id = pu.Id,
-                       UserId = us.UserId,
+                       UserId = us.Id,
                        CoinName = co.CoinName,
                        CurrencyName = cu.CurrencyName,
                        Quantity = pu.Quantity,

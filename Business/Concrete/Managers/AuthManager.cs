@@ -76,7 +76,7 @@ namespace Business.Concrete.Managers
             var data = new UserOperationClaim()
             {
                 ClaimId = 1,
-                UserId = user.Data.UserId
+                UserId = user.Data.Id
             };
             _userService.AddUserClaim(data);
             return new SuccessResult(Messages.ClaimAdded);
