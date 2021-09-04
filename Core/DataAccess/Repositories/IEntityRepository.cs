@@ -14,5 +14,6 @@ namespace Core.DataAccess.Repositories
         TEntity Get(Expression<Func<TEntity, bool>> filter);
         void Update(TEntity entity);
         int Count();
+        bool IsExist(Expression<Func<TEntity, bool>> filter);
     }
 }

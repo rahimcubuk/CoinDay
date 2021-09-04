@@ -7,15 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-// Rol bazlı kullanıcı kontrolü için gerekli sınıf.
-// Attribute olarak metota eklenir.
-// SecuredOperation çağrıldığı her metottan önce çalışır.
-// Kullanıcının metodu kullanma yetkisini denetler. 
-// Kullanımı:
-/* [SecuredOperation("claim1,claim2,...")]
-*  public ... MetotName(...){...}
-* */
-
 namespace Business.BusinessAspect.Autofac
 {
     public class SecuredOperation : MethodInterception

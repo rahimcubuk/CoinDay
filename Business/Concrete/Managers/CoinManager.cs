@@ -4,6 +4,7 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract.Dals;
@@ -23,7 +24,11 @@ namespace Business.Concrete.Managers
         #endregion
 
         #region Business Kurallari
-
+        private IResult CheckIfCoinNameExists(string coinName)
+        {
+            var result = _coinDal.IsExist(x => x.CoinName.ToLower() == coinName.ToLower());
+            return result ? new ErrorResult(Messages.CoinAlreadyExist) : (IResult)new SuccessResult();
+        }
         #endregion
 
         #region Metotlar
@@ -33,6 +38,10 @@ namespace Business.Concrete.Managers
         [CacheRemoveAspect("CoinManager.Get")]
         public IResult Add(Coin entity)
         {
+            IResult result = BusinessRules.Run(CheckIfCoinNameExists(entity.CoinName));
+
+            if (!(result is null)) return result;
+
             _coinDal.Add(entity);
             return new SuccessResult(Messages.SuccessAdded);
         }

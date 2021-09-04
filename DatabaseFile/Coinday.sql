@@ -101,6 +101,7 @@ CREATE TABLE [dbo].[OperationClaims] (
 );
 
 INSERT INTO OperationClaims (Name) VALUES ('admin')
+GO
 INSERT INTO OperationClaims (Name) VALUES ('user')
 GO
 

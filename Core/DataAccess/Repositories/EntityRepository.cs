@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Core.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore;
-using Core.Entities;
 
 namespace Core.DataAccess.Repositories
 {
@@ -60,6 +60,14 @@ namespace Core.DataAccess.Repositories
             {
                 context.Entry(entity).State = EntityState.Modified;
                 context.SaveChanges();
+            }
+        }
+
+        public bool IsExist(Expression<Func<TEntity, bool>> filter)
+        {
+            using (TContext context = new TContext())
+            {
+                return context.Set<TEntity>().Where(filter).ToList().Any();
             }
         }
     }

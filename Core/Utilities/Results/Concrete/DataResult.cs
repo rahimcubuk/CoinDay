@@ -1,6 +1,4 @@
-﻿using Core.Utilities.Results.Abstract;
-
-namespace Core.Utilities.Results.Concrete
+﻿namespace Core.Utilities.Results.Concrete
 {
     public class DataResult<TData> : Result, Abstract.IDataResult<TData>
     {
